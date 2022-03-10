@@ -1,0 +1,35 @@
+{% extends "navebar_out.html" %}
+{% block title %}Diagnosis{% endblock %}
+{% block content %}
+<br><br><br>
+<div class="container" style="margin: auto auto;">
+    <div class="card justify-content-md-center">
+      <!-- <h5 class="card-header">Featured</h5> -->
+          <div class="card-body" style="padding: 30px 40px;">
+              <br>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+            <br>
+            <h5 class="card-title">Results</h5>
+            <div class="container" style="margin : 50px 50px;">
+
+            <div class="container" style="margin : 15px 15px; padding-right: 100px;">
+                <div class="row align-items-end"> 
+                    <h6 class="card-text">The probable diagnosis says it could be <b>{{pred}}</b></h5><br>
+                    <h6 class="card-text">Information :</h5><br>   
+                    <p class="card-text" style="text-align: justify;">&emsp;&emsp;&emsp;{{info}}</p><br>
+                    <h6 class="card-text">Cause :</h5><br>   
+                    <p class="card-text" style="text-align: justify;">&emsp;&emsp;&emsp;{{cause}}</p><br>
+                </div>
+            </div>
+
+          </div>  
+          
+          <a href="./home" class="btn btn-primary d-grid gap-3 col-4 mx-auto" style="width:20%">Go to Home</a>
+        </div>  
+    </div>
+</div>
+
+{% endblock %}

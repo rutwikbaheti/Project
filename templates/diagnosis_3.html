@@ -1,0 +1,126 @@
+{% extends "navebar_out.html" %}
+{% block title %}Diagnosis{% endblock %}
+{% block content %}
+<br><br>
+<br>
+<div class="container" style="margin: auto auto;">
+    <div class="card justify-content-md-center">
+      <!-- <h5 class="card-header">Featured</h5> -->
+      <div class="card-body" style="padding: 30px 40px;">
+        <form action="./result" method="post">
+          <br>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:33.33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+        <br>
+        <h5 class="card-title">Please check all the statements below that apply to you</h5>
+        <p class="card-text">Select one answer in each row</p>
+
+        <div class="container" style="margin : 50px 50px;">
+
+        <div class="container" style="margin : 15px 15px;">
+          <div class="row align-items-end"> 
+          <div class="col-sm-6">
+            <h6>Diabetes</h5>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="diabetes" id="inlineRadio1" value="option1" style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio1">&ensp;Yes&emsp;&emsp;</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="diabetes" id="inlineRadio2" value="option2" style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio2">&ensp;No&emsp;&emsp;</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="diabetes" id="inlineRadio3" value="option3" default style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio3">&ensp;Don't Know</label>
+            </div>
+          </div>  
+        </div>
+        </div>
+
+        <hr style="margin-left:20px; margin-right: 230px; height:2px;">
+
+        <div class="container" style="margin : 15px 15px;">
+          <div class="row align-items-end"> 
+          <div class="col-sm-6">
+            <h6>History of alcohol consumption</h5>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="history_of_alcohol_consumption" id="inlineRadio1" value="option1" style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio1">&ensp;Yes&emsp;&emsp;</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="history_of_alcohol_consumption" id="inlineRadio2" value="option2" style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio2">&ensp;No&emsp;&emsp;</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="history_of_alcohol_consumption" id="inlineRadio3" value="option3" default style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio3">&ensp;Don't Know</label>
+            </div>
+          </div>  
+        </div>
+        </div>
+
+        <hr style="margin-left:20px;margin-right: 230px; height:2px">
+
+        <div class="container" style="margin : 15px 15px;">
+          <div class="row align-items-end"> 
+          <div class="col-sm-6">
+            <h6>Yellow Urine</h5>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="yellow_urine" id="inlineRadio1" value="option1" style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio1">&ensp;Yes&emsp;&emsp;</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="yellow_urine" id="inlineRadio2" value="option2" style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio2">&ensp;No&emsp;&emsp;</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="yellow_urine" id="inlineRadio3" value="option3" default style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio3">&ensp;Don't Know</label>
+            </div>
+          </div>  
+        </div>
+        </div>
+
+        <hr style="margin-left:20px;margin-right: 230px; height:2px">
+
+        <div class="container" style="margin : 15px 15px;">
+          <div class="row align-items-end"> 
+          <div class="col-sm-6">
+            <h6>Unsteadiness</h5>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="unsteadiness" id="inlineRadio1" value="option1" style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio1">&ensp;Yes&emsp;&emsp;</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="unsteadiness" id="inlineRadio2" value="option2" style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio2">&ensp;No&emsp;&emsp;</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="unsteadiness" id="inlineRadio3" value="option3" default style="margin-top: 5px;">
+              <label class="form-check-label" for="inlineRadio3">&ensp;Don't Know</label>
+            </div>
+          </div>  
+        </div>
+        </div>
+
+        
+      </div> 
+      
+           
+          <br><br><br>
+          <button type="submit" class="btn btn-primary d-grid gap-3 col-4 mx-auto" style="width:20%">Next</button>
+        </form>
+        </div>  
+    </div>
+</div>
+{% endblock %}

@@ -1,16 +1,18 @@
-# from urllib import response
-# from flask import Flask, redirect,request,render_template, jsonify, url_for
-# from flask_pymongo import pymongo
-# from flask_session import Session
 from flask import Flask, render_template, request, url_for, redirect, session
 import pymongo
 import bcrypt
+import pandas as pd
+import numpy as np
+import pickle
 
 app = Flask(__name__)
+model = pickle.load(open('model.pkl', 'rb'))
 app.secret_key = "testing"
 client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.u36vn.mongodb.net/DataBase?retryWrites=true&w=majority")
 db = client.DataBase
 records = db.User_Info
+test=pd.read_csv("Testing.csv",error_bad_lines=False)
+x_test=test.drop('prognosis',axis=1)
 
 @app.route('/')
 def index():
@@ -50,56 +52,6 @@ def registration():
             return render_template('home.html', email=new_email)
     return render_template('registration.html')
 
-# dbUrl = "mongodb+srv://admin:admin@cluster0.u36vn.mongodb.net/DataBase?retryWrites=true&w=majority"
-# client = pymongo.MongoClient(dbUrl)
-# db = client.get_database('DataBase')
-
-# app = Flask(__name__)
-
-# Session(app)
-
-# @app.route('/')
-# def index():
-#     return render_template("home.html")
-
-# @app.route('/home', methods=["POST"])
-# def home():
-#     return render_template("home.html")
-
-# @app.route('/login', methods=["GET","POST"])
-# def login():
-#   if(request.method == "POST"):
-#     user = db.User_Info.find_one({
-#       "email": request.form.get('email')
-#     })
-#     session["name"] = request.form.get("email")
-#     if user["password"] == request.form.get("password"):
-#       return render_template("home.html")
-#     else : 
-#       return jsonify({ "error": "Incorrect Password" }), 403
-#   return render_template("login.html") 
-
-# @app.route('/register', methods=["GET","POST"])
-# def register():
-#   if(request.method == "POST"):
-#     user = {
-#         "email" : request.form.get("email"),
-#         "password" : request.form.get("password")
-#     }
-#     if db.User_Info.find_one({ "email": user['email'] }):
-#       return jsonify({ "error": "Email address already in use" }), 400
-#     else:  
-#       db.User_Info.insert_one(user)
-#       return home()
-#   return render_template("registration.html")
-     
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-
-
-
-
 @app.route('/home')
 def home():
     if "email" in session:
@@ -110,7 +62,7 @@ def home():
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
-    message = 'Please login to your account'
+    message = ""#'Please login to your account'
     if "email" in session:
         return redirect(url_for("home"))
 
@@ -136,6 +88,7 @@ def login():
             message = 'Email not found'
             return render_template('login.html', message=message)
     return render_template('login.html', message=message)
+
 @app.route("/logout", methods=["POST", "GET"])
 def logout():
     if "email" in session:
@@ -143,6 +96,55 @@ def logout():
         return render_template("index.html")
     else:
         return render_template('index.html')
+
+data = {}
+
+@app.route('/diagnosis',methods=["GET"])
+def diagnosis():
+    return render_template("diagnosis.html")  
+
+@app.route('/diagnosis_1',methods=["GET"])
+def diagnosis_1():
+    return render_template("diagnosis_1.html") 
+
+@app.route('/diagnosis_2',methods=["GET","POST"])
+def diagnosis_2():
+    if request.method=='POST':
+        data['name'] = request.form['name']
+        data['age'] = request.form['age']
+        data['gender'] = request.form['gender']
+        data['height'] = request.form['height']
+        data['weight'] = request.form['weight']
+    return render_template("diagnosis_2.html") 
+
+@app.route('/diagnosis_3',methods=["GET","POST"])
+def diagnosis_3():
+    if request.method=='POST':
+        col=x_test.columns
+        inputt = [str(x) for x in request.form.values()]
+        b=[0]*114
+        for x in range(0,114):
+            for y in inputt:
+                if(col[x]==y):
+                    b[x]=1
+        b=np.array(b)
+        b=b.reshape(1,114)
+        prediction = model.predict(b)
+        prediction=prediction[0]
+        data['prediction'] = prediction
+    return render_template("diagnosis_3.html") 
+
+@app.route('/result',methods=["GET","POST"])
+def result():
+    if request.method=='POST':
+        data['diabetes'] = request.form['diabetes']
+        data['history_of_alcohol_consumption'] = request.form['history_of_alcohol_consumption'] 
+        data['yellow_urine'] = request.form['yellow_urine']
+        data['unsteadiness'] = request.form['unsteadiness']
+        doc = db.Disease_Info.find_one({"disease name" : data['prediction']})
+        info = doc['information']
+        cause = doc['causes']
+    return render_template("result.html",pred="{}".format(data['prediction']),info="{}".format(info),cause="{}".format(cause)) 
 
 if __name__ == "__main__":
   app.run(debug=True)
