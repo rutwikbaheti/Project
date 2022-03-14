@@ -122,8 +122,6 @@ body {
 .row-data-3 h2 {
   font-family: "Merriweather", serif;
   position: relative;
-  left: 30px;
-  margin: 30px;
   padding: 40px;
   color: black;
 }
@@ -137,3 +135,4 @@ body {
 .text-link{
   text-decoration: none;
 }
+

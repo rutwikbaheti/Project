@@ -18,6 +18,11 @@ x_test=test.drop('prognosis',axis=1)
 def index():
     return render_template('index.html')
 
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
 @app.route("/registration", methods=['post', 'get'])
 def registration():
     message = ''
