@@ -115,11 +115,14 @@ def diagnosis_1():
 @app.route('/diagnosis_2',methods=["GET","POST"])
 def diagnosis_2():
     if request.method=='POST':
-        data['name'] = request.form['name']
-        data['age'] = request.form['age']
+        if request.form['name'] == "myself":
+            user = db.User_Info.find_one({"email" : session["email"]})
+            data['name'] = user["name"]
+        else:
+            data['name'] = request.form['name']    
+        data['dob'] = request.form['dob']
         data['gender'] = request.form['gender']
-        data['height'] = request.form['height']
-        data['weight'] = request.form['weight']
+        data['blood_group'] = request.form['blood_group']
     return render_template("diagnosis_2.html") 
 
 @app.route('/diagnosis_3',methods=["GET","POST"])
@@ -146,6 +149,9 @@ def result():
         data['history_of_alcohol_consumption'] = request.form['history_of_alcohol_consumption'] 
         data['yellow_urine'] = request.form['yellow_urine']
         data['unsteadiness'] = request.form['unsteadiness']
+        if "email" in session:
+            db.User_Info.update_one({"email":session["email"]},{ "$push" :{"history":data}})
+            print(session["email"])
         doc = db.Disease_Info.find_one({"disease name" : data['prediction']})
         info = doc['information']
         cause = doc['causes']
