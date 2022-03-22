@@ -4,9 +4,10 @@ import bcrypt
 import pandas as pd
 import numpy as np
 import pickle
+from datetime import datetime
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('model.pkl','rb'))
 app.secret_key = "testing"
 client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.u36vn.mongodb.net/DataBase?retryWrites=true&w=majority")
 db = client.DataBase
@@ -22,6 +23,13 @@ def index():
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
+
+@app.route("/history")
+def history():
+    if "email" in session:
+        user = db.User_Info.find_one({"email" : session["email"]})
+        history_list = user['history']
+    return render_template('history.html',history_list = history_list)
 
 @app.route("/registration", methods=['post', 'get'])
 def registration():
@@ -140,6 +148,7 @@ def diagnosis_3():
         prediction = model.predict(b)
         prediction=prediction[0]
         data['prediction'] = prediction
+        data['date-time'] = datetime.now()
     return render_template("diagnosis_3.html") 
 
 @app.route('/result',methods=["GET","POST"])
