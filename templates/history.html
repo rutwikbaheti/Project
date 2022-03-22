@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}History{% endblock %}
+{% block content %}
+<br>
+<div class="container" style="margin: auto auto;">
+    <div class="card justify-content-md-center">
+        <h5 class="card-header">History</h5>
+      <div class="row align-items-end" style="margin: 10px 10px;">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date Time</th>
+                <th scope="col">Name</th>
+                <th scope="col">Prediction</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Diabetes</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% set i = 1%}
+                {% for history in history_list%}
+                <tr>
+                    <th scope="row">{{i}}</th>
+                    <td>{{history['date-time']}}</td>
+                    <td>{{history['name']}}</td>
+                    <td>{{history['prediction']}}</td>
+                    <td>{{history['blood_group']}}</td>
+                    <td>{{history['diabetes']}}</td>
+                  </tr>
+                  {% set i=i+1 %}
+                  {% endfor %}
+            </tbody>
+        </table>
+        <!-- {% for history in history_list%}
+        <p>{{history['date-time']}}  {{history['name']}}  {{history['prediction']}}  {{history['blood_group']}}  {{history['diabetes']}}  {{history['history_of_alcohol_consumption']}}</p><br>
+        {% endfor %} -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
