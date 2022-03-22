@@ -74,8 +74,6 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-
-       
         email_found = records.find_one({"email": email})
         if email_found:
             email_val = email_found['email']
