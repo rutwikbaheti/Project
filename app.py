@@ -28,7 +28,10 @@ def profile():
 def history():
     if "email" in session:
         user = db.User_Info.find_one({"email" : session["email"]})
-        history_list = user['history']
+        if 'history' in user :
+            history_list = user['history']
+        else:
+            history_list = {}    
     return render_template('history.html',history_list = history_list)
 
 @app.route("/registration", methods=['post', 'get'])
@@ -62,7 +65,7 @@ def registration():
             user_data = records.find_one({"email": email})
             new_email = user_data['email']
    
-            return render_template('home.html', email=new_email)
+            return render_template('login.html', email=new_email)
     return render_template('registration.html')
 
 @app.route('/home')
