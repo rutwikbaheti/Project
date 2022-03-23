@@ -10,13 +10,16 @@
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-
             <br>
             <h5 class="card-title">Results</h5>
             <div class="container" style="margin : 50px 50px;">
 
             <div class="container" style="margin : 15px 15px; padding-right: 100px;">
                 <div class="row align-items-end"> 
+                    <h6 class="card-text" >Name : {{data['name']}}</h6>
+                    <h6 class="card-text" style="text-align: left;">DOB : {{data['dob']}}</h6>
+                    <h6 class="card-text">Gender : {{data['gender']}}</h6><br>
+                    <h6 class="card-text">Blood Group : {{data['blood_group']}}</h6><br><br>
                     <h6 class="card-text">The probable diagnosis says it could be <b>{{pred}}</b></h5><br>
                     <h6 class="card-text">Information :</h5><br>   
                     <p class="card-text" style="text-align: justify;">&emsp;&emsp;&emsp;{{info}}</p><br>

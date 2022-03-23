@@ -117,18 +117,26 @@ data = {}
 def diagnosis():
     return render_template("diagnosis.html")  
 
-@app.route('/diagnosis_1',methods=["GET"])
+@app.route('/diagnosis_0',methods=["GET"])
+def diagnosis_0():
+    return render_template("diagnosis_0.html") 
+
+@app.route('/diagnosis_1',methods=["GET","POST"])
 def diagnosis_1():
+    if request.method == 'POST':
+        if request.form['user_identity'] == 'myself':
+            user = db.User_Info.find_one({"email" : session["email"]})
+            data['name'] = user["name"]
+            data['dob'] = user["dob"]
+            data['gender'] = user["gender"]
+            data['blood_group'] = user["blood_group"]
+            return render_template('diagnosis_3.html')    
     return render_template("diagnosis_1.html") 
 
 @app.route('/diagnosis_2',methods=["GET","POST"])
 def diagnosis_2():
     if request.method=='POST':
-        if request.form['name'] == "myself":
-            user = db.User_Info.find_one({"email" : session["email"]})
-            data['name'] = user["name"]
-        else:
-            data['name'] = request.form['name']    
+        data['name'] = request.form['name']    
         data['dob'] = request.form['dob']
         data['gender'] = request.form['gender']
         data['blood_group'] = request.form['blood_group']
@@ -161,11 +169,11 @@ def result():
         data['unsteadiness'] = request.form['unsteadiness']
         if "email" in session:
             db.User_Info.update_one({"email":session["email"]},{ "$push" :{"history":data}})
-            print(session["email"])
+            print(session["email"])    
         doc = db.Disease_Info.find_one({"disease name" : data['prediction']})
         info = doc['information']
         cause = doc['causes']
-    return render_template("result.html",pred="{}".format(data['prediction']),info="{}".format(info),cause="{}".format(cause)) 
+    return render_template("result.html",pred="{}".format(data['prediction']), info = info, cause = cause, data = data) 
 
 if __name__ == "__main__":
   app.run(debug=True)
