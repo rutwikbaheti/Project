@@ -42,6 +42,10 @@ def registration():
     if request.method == "POST":
         user = request.form.get("fullname")
         email = request.form.get("email")
+        dob = request.form.get("dob")
+        gender = request.form.get("gender")
+        blood_group = request.form.get("blood_group")
+        phone = request.form.get("phone")
         
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
@@ -59,7 +63,7 @@ def registration():
             return render_template('index.html', message=message)
         else:
             hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
-            user_input = {'name': user, 'email': email, 'password': hashed}
+            user_input = {'name': user, 'email': email,'dob':dob,'gender':gender,'blood_group':blood_group,'phone':phone, 'password': hashed}
             records.insert_one(user_input)
             
             user_data = records.find_one({"email": email})
