@@ -1,4 +1,3 @@
-from unicodedata import name
 from flask import Flask, render_template, request, url_for, redirect, session
 import pymongo
 import bcrypt
@@ -22,10 +21,20 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/profile')
+@app.route('/profile',methods=["GET","POST"])
 def profile():
     if "email" in session:
         user = db.User_Info.find_one({"email" : session["email"]})
+        if request.method == "POST":
+            db.User_Info.update_many({"email" : session["email"]},
+            {"$set" : 
+            {"name": request.form['name'],
+            "phone": request.form['phone'],
+            "dob": request.form['dob'],
+            "gender": request.form['gender'],
+            "blood_group": request.form['blood_group']}
+            })
+            return redirect(url_for('profile',user=user))
     return render_template('profile.html',user = user )
 
 @app.route("/update")
