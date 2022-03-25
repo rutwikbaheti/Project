@@ -1,83 +1,74 @@
-{% extends "base.html" %}
-{% block title %}Register System{% endblock %}
-
-{% block content %}
-<br><br><br><br>
-{% if message  %}
-    <div class="alert alert-secondary" role="alert">
-        <p>{{ message }}</p>
-    </div>
-{% endif %}
-<section class="h-50" style="background-color: #f5f7f9;">
-    <div class="container container-custome">
-      <div class="row d-flex justify-content-center align-items-center ">
-        <div class="col-lg-8 col-xl-11">
-          <div class="card text-black" style="border-radius: 25px;">
-            <div class="card-body p-md-5">
-              <div class="row justify-content-center">
-                <div class="col-md-8 col-sm-6 col-lg-6 order-2 order-lg-1">
-  
-                  <p class="text-center h2 fw-bold mb-2 mx-1 mx-md-2 ">User Information </p>
-  
-                  <form class="mx-1 mx-md-2" action="" method="post">
-  
-                    <div class="d-flex flex-row align-items-center mb-2">
-                        <i class="fa fa-user fa-lg me-3 fa-fw" aria-hidden="true"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="text" name="fullname" id="inputFullName" class="form-control" placeholder="Your Name"required/>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-2">
-                        <i class="fa fa-envelope  fa-lg me-3 fa-fw" aria-hidden="true"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="email" name="email" id="InputEmail" class="form-control" placeholder="Your Email" required/>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-2">
-                        <i class="fa fa-lock  fa-lg me-3 fa-fw" aria-hidden="true"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="password" name="password1"id="InputPassword" class="form-control" placeholder="Password" required/>
-                          </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-2">
-                        <i class="fa fa-key  fa-lg me-3 fa-fw" aria-hidden="true"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="password" name="password2"  id="InputPassword2" class="form-control" placeholder="Repeat your password" required/>
-                        
-                      </div>
-                    </div>
-  
-                    <div class="form-check d-flex justify-content-center mb-2">
-                      <!-- <input
-                        class="form-check-input me-2"
-                        type="checkbox"
-                        value=""
-                        id="form2Example3c"
-                      /> -->
-                      <label class="form-check-label" for="form2Example3">
-                        Go Login<a href="/login">Login Page</a>
-                      </label>
-                    </div>
-  
-                    <div class="d-flex mx-2 mb-2 mb-lg-2">
-                      <button type="submit" class="btn btn-primary">Register</button>
-                    </div>
-                  </form>
-                </div>
-                <div class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
-  
-                  <img src="../static/images/4.png" class="img-fluid" alt="Sample image">
-  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+{% extends "base.html" %} {% block title %}History{% endblock %} {% block
+  content %}
+  <br />
+  <!-- <div class="container" style="margin: auto auto">
+    <div class="card justify-content-md-center">
+      <div class="row align-items-end" style="margin: 10px 10px">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Blood Group</th>
+              <th scope="col">Phone No</th>
+              <th class="func1">Remove</th>
+              <th class="func2">Modify</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{user['name']}}</td>
+              <td>{{user['email']}}</td>
+              <td>{{user['dob']}}</td>
+              <td>{{user['gender']}}</td>
+              <td>{{user['blood_group']}}</td>
+              <td>{{user['phone']}}</td>
+              <td class="func1">
+                <a href="./remove?_id={{ user['_id'] }}"><button type="submit">DELETE</button></a>
+              </td>
+              <td class="func1">
+                <a href="./update?_id={{ user['_id'] }}"><button type="submit">EDIT</button></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-  </section>
+  </div> -->
+  <div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg" width="250" ><span class="font-weight-bold">{{user['name']}}</span><span class="text-black-50">{{user['email']}}</span><span>{{user['phone']}}</span></div>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
+                      <a href="./home" style="color: black; text-decoration: none;"><h6>Back to home</h6></a>
+                    </div>
+                    <a href="./update?_id={{ user['_id'] }}" style="color: black; text-decoration: none;"><h6 class="text-right">Edit Profile </h6></a>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Full Name" value="{{user.name}}" ></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="{{user.phone}}" placeholder="Phone No "></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="tel" name="gender" class="form-control" placeholder="Gender" value="{{user.gender}}"></div>
+                    <div class="col-md-6"><input type="text" name="blood_group" class="form-control" value="{{user.blood_group}}" placeholder="Blood Group"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="address" value="D-113, right avenue block, CA,USA"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="USA" placeholder="Country"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="Bank Name" value="Bank of America"></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="043958409584095" placeholder="Account Number"></div>
+                </div>
+        </div>
+    </div>
+</div>
   
   {% endblock %}

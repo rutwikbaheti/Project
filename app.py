@@ -1,9 +1,11 @@
+from unicodedata import name
 from flask import Flask, render_template, request, url_for, redirect, session
 import pymongo
 import bcrypt
 import pandas as pd
 import numpy as np
 import pickle
+from bson import ObjectId 
 from datetime import datetime
 
 app = Flask(__name__)
@@ -22,7 +24,30 @@ def index():
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    if "email" in session:
+        user = db.User_Info.find_one({"email" : session["email"]})
+    return render_template('profile.html',user = user )
+
+@app.route("/update")
+def update ():
+    if "email" in session:
+        user = db.User_Info.find_one({"email" : session["email"]})
+    return render_template('update.html',user = user )
+
+@app.route("/action3", methods=['POST'])
+def action3():
+    if "email" in session:
+        profileInfo = request.args.get('form')
+        id =request.form['_id']
+        name=request.form['name']
+        gender=request.form["gender"]
+        blood_group=request.form["blood_group"]
+        phone=request.form['phone']
+        records.update_one(
+        { "_id": ObjectId(id) },
+        { "$set": { "name": name,"phone":phone,"gender": gender,"blood_group":blood_group}})
+        return redirect(url_for("home"))
+
 
 @app.route("/history")
 def history():

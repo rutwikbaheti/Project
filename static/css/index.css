@@ -11,6 +11,7 @@ body {
 .container-custome-full {
   background-color: #1576d1;
   border-radius: 10px;
+  height: 550px;
 }
 
 .navbar.navbar-inverse .navbar-brand {
@@ -135,4 +136,7 @@ body {
 .text-link{
   text-decoration: none;
 }
-
+.div-wrapper{
+  height: 200px;
+  margin-top: 40px;
+}
