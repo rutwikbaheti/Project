@@ -15,16 +15,88 @@
             <div class="container" style="margin : 50px 50px;">
 
             <div class="container" style="margin : 15px 15px; padding-right: 100px;">
-                <div class="row align-items-end"> 
-                    <h6 class="card-text" >Name : {{data['name']}}</h6>
-                    <h6 class="card-text" style="text-align: left;">DOB : {{data['dob']}}</h6>
-                    <h6 class="card-text">Gender : {{data['gender']}}</h6><br>
-                    <h6 class="card-text">Blood Group : {{data['blood_group']}}</h6><br><br>
-                    <h6 class="card-text">The probable diagnosis says it could be <b>{{pred}}</b></h5><br>
-                    <h6 class="card-text">Information :</h5><br>   
-                    <p class="card-text" style="text-align: justify;">&emsp;&emsp;&emsp;{{info}}</p><br>
-                    <h6 class="card-text">Cause :</h5><br>   
-                    <p class="card-text" style="text-align: justify;">&emsp;&emsp;&emsp;{{cause}}</p><br>
+                <div class="row align-items-end">
+                  <div class="container" style="margin : 15px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h5>Name : </h5>
+                    </div>
+                    <div class="col-sm-9">
+                      <h5>{{data['name'][0] | upper}}{{data['name'][1:]}}</h5>
+                    </div>  
+                  </div>
+                  </div> 
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>DOB : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['dob']}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>Gender : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['gender'][0] | upper}}{{data['gender'][1:]}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>Blood Group : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['blood_group']}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>Diabetes : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['diabetes']}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>History of Alcohal Consumption : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['history_of_alcohol_consumption']}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                    <h6 class="card-text" style="margin-top: 20px; margin-bottom: 20px;">&emsp;The probable diagnosis says it could be <b>{{pred}}</b></h5><br>
+                      <div class="container" style="margin : 5px 15px;">
+                        <div class="row align-items-start"> 
+                        <div class="col-sm-3">
+                          <h6>Information : </h6>
+                        </div>
+                        <div class="col-sm-9">
+                          <p style="text-align: justify;">{{info}}</p>
+                        </div>  
+                      </div>
+                      </div>
+                      <div class="container" style="margin : 5px 15px;">
+                        <div class="row align-items-start"> 
+                        <div class="col-sm-3">
+                          <h6>Cause : </h6>
+                        </div>
+                        <div class="col-sm-9">
+                          <p style="text-align: justify;">{{cause}}</p>
+                        </div>  
+                      </div>
+                      </div>
                 </div>
             </div>
 

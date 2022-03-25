@@ -159,7 +159,7 @@ def diagnosis_1():
             data['dob'] = user["dob"]
             data['gender'] = user["gender"]
             data['blood_group'] = user["blood_group"]
-            return render_template('diagnosis_3.html')    
+            return render_template('diagnosis_2.html')    
     return render_template("diagnosis_1.html") 
 
 @app.route('/diagnosis_2',methods=["GET","POST"])
