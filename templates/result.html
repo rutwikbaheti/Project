@@ -97,6 +97,26 @@
                         </div>  
                       </div>
                       </div>
+                      <div class="container" style="margin : 5px 15px;">
+                        <div class="row align-items-start"> 
+                        <div class="col-sm-3">
+                          <h6>Recommended Doctors : </h6>
+                        </div>
+                        <div class="col-sm-9">
+
+                          {% for i in range(doc['doctor names'] | length) %}
+                          <div class="card" style="flex-direction: row;margin-bottom: 15px; padding: 10px;">
+    
+                            <div class="card-body col-sm-9">
+                                <h6 style="text-align: left;"><b>Name : {{doc['doctor names'][i]}}</b></h5>
+                                <p style="text-align: left;">{{doc['doctor qualifications'][i]}}</p>
+                                <p class="card-text" style="text-align: justify; "><b>Specialization : </b>{{doc['doctor specializations'][i]}} <br> <b>Experience : </b>{{doc['doctor exp'][i]}} Years</b> <br> {{doc['doctor information'][i]}}</p>
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>  
+                      </div>
+                      </div>
                 </div>
             </div>
 

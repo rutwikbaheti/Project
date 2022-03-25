@@ -174,10 +174,11 @@ def result():
         if "email" in session:
             db.User_Info.update_one({"email":session["email"]},{ "$push" :{"history":data}})
             print(session["email"])    
-        doc = db.Disease_Info.find_one({"disease name" : data['prediction']})
-        info = doc['information']
-        cause = doc['causes']
-    return render_template("result.html",pred="{}".format(data['prediction']), info = info, cause = cause, data = data) 
+        dis = db.Disease_Info.find_one({"disease name" : data['prediction']})
+        info = dis['information']
+        cause = dis['causes']
+        doc = db.Doctor_Info.find_one({"disease name" : data['prediction']})
+    return render_template("result.html",pred="{}".format(data['prediction']), info = info, cause = cause, data = data, doc=doc) 
 
 if __name__ == "__main__":
   app.run(debug=True)
