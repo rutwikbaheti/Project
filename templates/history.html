@@ -18,17 +18,15 @@
               </tr>
             </thead>
             <tbody>
-                {% set i = 1%}
                 {% for history in history_list%}
                 <tr>
-                    <th scope="row">{{i}}</th>
+                    <th scope="row">{{history_list.index(history)+1}}</th>
                     <td>{{history['date-time']}}</td>
                     <td>{{history['name']}}</td>
                     <td>{{history['prediction']}}</td>
                     <td>{{history['blood_group']}}</td>
                     <td>{{history['diabetes']}}</td>
                   </tr>
-                  {% set i=i+1 %}
                   {% endfor %}
             </tbody>
         </table>
