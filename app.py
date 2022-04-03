@@ -88,13 +88,13 @@ def registration():
         email_found = records.find_one({"email": email})
         if user_found:
             message = 'There already is a user by that name'
-            return render_template('index.html', message=message)
+            redirect(url_for('index', message=message))
         if email_found:
             message = 'This email already exists in database'
-            return render_template('index.html', message=message)
+            redirect(url_for('index', message=message))
         if password1 != password2:
             message = 'Passwords should match!'
-            return render_template('index.html', message=message)
+            redirect(url_for('index', message=message))
         else:
             hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
             user_input = {'name': user, 'email': email,'dob':dob,'gender':gender,'blood_group':blood_group,'phone':phone, 'password': hashed}
@@ -102,8 +102,7 @@ def registration():
             
             user_data = records.find_one({"email": email})
             new_email = user_data['email']
-   
-            return render_template('login.html', email=new_email)
+            return redirect(url_for('login', email=new_email))
     return render_template('registration.html')
 
 @app.route('/home')
@@ -135,10 +134,12 @@ def login():
                 if "email" in session:
                     return redirect(url_for("home"))
                 message = 'Wrong password'
-                return render_template('login.html', message=message)
+                return redirect(url_for('login', message=message))
+                #return render_template('login.html', message=message)
         else:
             message = 'Email not found'
-            return render_template('login.html', message=message)
+            return redirect(url_for('login', message=message))
+            #return render_template('login.html', message=message)
     return render_template('login.html', message=message)
 
 @app.route("/logout", methods=["POST", "GET"])

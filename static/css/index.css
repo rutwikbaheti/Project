@@ -26,8 +26,8 @@ body {
 }
 
 .services-section img {
-  width: 400px;
-  height: 410px;
+  width: 450px;
+  height: 500px;
   margin: auto;
   display: block;
 }
@@ -123,14 +123,13 @@ body {
 .row-data-3 h2 {
   font-family: "Merriweather", serif;
   position: relative;
-  padding: 40px;
+  padding-top: 60px;
+  left: 25px;
   color: black;
 }
 .row-data-3 p {
   position: relative;
   margin: 30px;
-  left: 70px;
-
   color: black;
 }
 .text-link{
