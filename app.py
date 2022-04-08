@@ -156,12 +156,8 @@ data = {}
 def diagnosis():
     return render_template("diagnosis.html")  
 
-@app.route('/diagnosis_0',methods=["GET"])
+@app.route('/diagnosis_0',methods=["GET","POST"])
 def diagnosis_0():
-    return render_template("diagnosis_0.html") 
-
-@app.route('/diagnosis_1',methods=["GET","POST"])
-def diagnosis_1():
     if request.method == 'POST':
         if request.form['user_identity'] == 'myself':
             user = db.User_Info.find_one({"email" : session["email"]})
@@ -169,20 +165,23 @@ def diagnosis_1():
             data['dob'] = user["dob"]
             data['gender'] = user["gender"]
             data['blood_group'] = user["blood_group"]
-            return render_template('diagnosis_2.html')    
-    return render_template("diagnosis_1.html") 
+            return redirect(url_for('diagnosis_2'))
+        else:    
+            return redirect(url_for('diagnosis_1'))
+    return render_template("diagnosis_0.html") 
 
-@app.route('/diagnosis_2',methods=["GET","POST"])
-def diagnosis_2():
+@app.route('/diagnosis_1',methods=["GET","POST"])
+def diagnosis_1():
     if request.method=='POST':
         data['name'] = request.form['name']    
         data['dob'] = request.form['dob']
         data['gender'] = request.form['gender']
         data['blood_group'] = request.form['blood_group']
-    return render_template("diagnosis_2.html") 
+        return redirect(url_for('diagnosis_2'))
+    return render_template("diagnosis_1.html") 
 
-@app.route('/diagnosis_3',methods=["GET","POST"])
-def diagnosis_3():
+@app.route('/diagnosis_2',methods=["GET","POST"])
+def diagnosis_2():
     if request.method=='POST':
         col=x_test.columns
         inputt = [str(x) for x in request.form.values()]
@@ -197,23 +196,29 @@ def diagnosis_3():
         prediction=prediction[0]
         data['prediction'] = prediction
         data['date-time'] = datetime.now()
-    return render_template("diagnosis_3.html") 
+        return redirect(url_for('diagnosis_3'))
+    return render_template("diagnosis_2.html") 
 
-@app.route('/result',methods=["GET","POST"])
-def result():
+@app.route('/diagnosis_3',methods=["GET","POST"])
+def diagnosis_3():
     if request.method=='POST':
         data['diabetes'] = request.form['diabetes']
         data['history_of_alcohol_consumption'] = request.form['history_of_alcohol_consumption'] 
         data['yellow_urine'] = request.form['yellow_urine']
         data['unsteadiness'] = request.form['unsteadiness']
-        if "email" in session:
-            db.User_Info.update_one({"email":session["email"]},{ "$push" :{"history":data}})
-            print(session["email"])    
-        dis = db.Disease_Info.find_one({"disease name" : data['prediction']})
-        info = dis['information']
-        cause = dis['causes']
-        doc = db.Doctor_Info.find_one({"disease name" : data['prediction']})
+        return redirect(url_for('result'))
+    return render_template("diagnosis_3.html") 
+
+@app.route('/result',methods=["GET","POST"])
+def result():
+    if "email" in session:
+        db.User_Info.update_one({"email":session["email"]},{ "$push" :{"history":data}})
+        print(session["email"])    
+    dis = db.Disease_Info.find_one({"disease name" : data['prediction']})
+    info = dis['information']
+    cause = dis['causes']
+    doc = db.Doctor_Info.find_one({"disease name" : data['prediction']})
     return render_template("result.html",pred="{}".format(data['prediction']), info = info, cause = cause, data = data, doc=doc) 
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run()

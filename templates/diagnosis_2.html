@@ -7,7 +7,7 @@
     <div class="card justify-content-md-center">
       <!-- <h5 class="card-header">Featured</h5> -->
           <div class="card-body" style="padding: 30px 40px;">
-            <form action='/diagnosis_3' method="post" class="col s12">
+            <form action='diagnosis_2' method="post" class="col s12">
               <br>
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -15,12 +15,12 @@
 
             <br>
             <h5 class="card-title">Please check all the statements below that apply to you</h5>
-            <p class="card-text">Select one answer in each row</p>
             
             <div class="container" style="margin : 50px 50px;">
               <div class="row">
-                <div class="input-field col s4">
-                  <select id="s1" name="Symptom1" required>
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-1 *</label><br>
+                  <select id="s1" name="Symptom1" required style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -137,7 +137,6 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-1 *</label>
                 </div>
                 <!-- <div class="input-field col s4">
         
@@ -145,8 +144,10 @@
                     <br>
                   <input id="s2" name="Symptom2" placeholder="Itching"  type="text" class="validate" required>
                 </div> -->
-                <div class="input-field col s4">
-                  <select id="s2" name="Symptom2" required>
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-2 *</label><br>
+
+                  <select id="s2" name="Symptom2" required style="padding: 5px; font-size: 15px;"> 
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -263,15 +264,17 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-2 *</label>
+                  
                 </div>
                 <!-- <div class="input-field col s4">
                     <label for="s3"><b>Symptom-3</b></label>
                     <br>
                   <input id="s3" name="Symptom3" placeholder="Dizziness" type="text" class="validate" required>
                 </div> -->
-                <div class="input-field col s4">
-                  <select id="s3" name="Symptom3" required>
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-3 *</label><br>
+
+                  <select id="s3" name="Symptom3" required style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -388,7 +391,7 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-3 *</label>
+                  
                 </div>
               </div>
               <div class="row">
@@ -397,8 +400,10 @@
                     <br>
                   <input id="s1" name="Symptom1" placeholder="Fever"  type="text" class="validate" required>
                 </div> -->
-                <div class="input-field col s4">
-                  <select id="s4" name="Symptom4" required>
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-4 *</label><br>
+
+                  <select id="s4" name="Symptom4" required style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -515,7 +520,7 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-4 *</label>
+                  
                 </div>
                 <!-- <div class="input-field col s4">
         
@@ -523,8 +528,10 @@
                     <br>
                   <input id="s2" name="Symptom2" placeholder="Itching"  type="text" class="validate" required>
                 </div> -->
-                <div class="input-field col s4">
-                  <select id="s5" name="Symptom5" required>
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-5 *</label><br>
+
+                  <select id="s5" name="Symptom5" required style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -641,15 +648,16 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-5 *</label>
                 </div>
                 <!-- <div class="input-field col s4">
                     <label for="s3"><b>Symptom-3</b></label>
                     <br>
                   <input id="s3" name="Symptom3" placeholder="Dizziness" type="text" class="validate" required>
                 </div> -->
-                <div class="input-field col s4">
-                  <select id="s6" name="Symptom6">
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-6 </label><br>
+
+                  <select id="s6" name="Symptom6" style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -766,7 +774,6 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-6</label>
                 </div>
                 </div>
                 <div class="row">
@@ -775,8 +782,10 @@
                     <br>
                   <input id="s1" name="Symptom1" placeholder="Fever"  type="text" class="validate" required>
                 </div> -->
-                <div class="input-field col s4">
-                  <select id="s7" name="Symptom7">
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-7 </label><br>
+
+                  <select id="s7" name="Symptom7" style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -893,7 +902,6 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-7</label>
                 </div>
                 <!-- <div class="input-field col s4">
         
@@ -901,8 +909,10 @@
                     <br>
                   <input id="s2" name="Symptom2" placeholder="Itching"  type="text" class="validate" required>
                 </div> -->
-                <div class="input-field col s4">
-                  <select id="s8" name="Symptom8">
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-8 </label><br>
+
+                  <select id="s8" name="Symptom8" style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -1019,15 +1029,16 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-8</label>
                 </div>
                 <!-- <div class="input-field col s4">
                     <label for="s3"><b>Symptom-3</b></label>
                     <br>
                   <input id="s3" name="Symptom3" placeholder="Dizziness" type="text" class="validate" required>
                 </div> -->
-                <div class="input-field col s4">
-                  <select id="s9" name="Symptom9">
+                <div class="input-field col s4 mb-4">
+                  <label style="font-weight: bold;">Symptom-9  </label><br>
+
+                  <select id="s9" name="Symptom9" style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -1144,7 +1155,7 @@
                     <option value="red_sore_around_nose">red_sore_around_nose</option>
                     <option value="yellow_crust_ooze">yellow_crust_ooze</option>
                   </select>
-                  <label>Symptom-9</label>
+
                 </div>
               </div>
             </div>          
