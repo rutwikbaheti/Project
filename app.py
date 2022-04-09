@@ -196,6 +196,7 @@ def diagnosis_2():
         prediction=prediction[0]
         data['prediction'] = prediction
         data['date-time'] = datetime.now()
+        print("Prediction : " + prediction)
         return redirect(url_for('diagnosis_3'))
     return render_template("diagnosis_2.html") 
 
@@ -214,10 +215,11 @@ def result():
     if "email" in session:
         db.User_Info.update_one({"email":session["email"]},{ "$push" :{"history":data}})
         print(session["email"])    
-    dis = db.Disease_Info.find_one({"disease name" : data['prediction']})
-    info = dis['information']
-    cause = dis['causes']
-    doc = db.Doctor_Info.find_one({"disease name" : data['prediction']})
+
+        dis = db.Disease_Info.find_one({"disease name" : data['prediction']})
+        info = dis['information']
+        cause = dis['causes']
+        doc = db.Doctor_Info.find_one({"disease name" : data['prediction']})
     return render_template("result.html",pred="{}".format(data['prediction']), info = info, cause = cause, data = data, doc=doc) 
 
 if __name__ == "__main__":
