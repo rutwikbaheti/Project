@@ -27,10 +27,17 @@
         </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            User Profile</a>
+            </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+            <li><h5 class="dropdown-header">Profile</h5></li>
+            <li><a class="dropdown-item" href="/profile">User Profile</a></li>
             <li><a class="dropdown-item" href="/history">User History</a></li>
+            <div class="dropdown-divider"></div>
+            <li><h5 class="dropdown-header">Settings</h5></li>
+            <li><a class="dropdown-item" href="update">Edit Profile</a></li>
+            <li><a class="dropdown-item" href="change_password">Change Password</a></li>
+            <li><a class="dropdown-item" href="delete_account" onclick="return confirm('Are you sure you want delete this account ? ')">Delete Account</a></li>
+            <div class="dropdown-divider"></div>
             <li><a class="dropdown-item" href="/logout">Logout</a></li>
           </ul>
         </li>

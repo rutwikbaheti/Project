@@ -1,0 +1,7 @@
+Flask==2.0.3
+Flask_Mail==0.9.1
+numpy==1.22.2
+pandas==1.4.1
+pymongo==4.0.1
+python_bcrypt==0.3.2
+requests==2.27.1

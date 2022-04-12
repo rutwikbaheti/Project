@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}OTP Verification{% endblock %}
+
+{% block content %}
+<br><br><br><br>
+
+<section class="h-50" style="background-color: #f5f7f9;">
+    <div class="container container-custome">
+      <div class="row d-flex justify-content-center align-items-center ">
+        <div class="col-lg-8 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-8 col-sm-6 col-lg-6 order-2 order-lg-1 div-wrapper">
+  
+                  <p class="text-center h2 fw-bold mb-2 mx-1 mx-md-2 ">OTP Verification</p>
+  
+                  <form class="mx-1 mx-md-2" id="div-wrapper" action="otp_verification" method="post">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      {% if message  %}
+                      <div class="alert alert-danger flex-fill mb-0" role="alert">
+                        {{ message }}
+                      </div>
+                      {% endif %}
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa fa-envelope  fa-lg me-3 fa-fw" aria-hidden="true"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input name="otp" class="form-control" id="Inputotp" placeholder="Enter otp" required>
+                    </div>
+                        <input type="hidden" name="email" value="{{email}}">
+                        <input type="hidden" name="hashed" value="{{otp}}">
+                    </div> 
+                    <br><br>
+                    <div class="d-flex mx-2 mb-2 mb-lg-2" style="margin: auto;">
+                      <button type="submit" class="btn btn-primary d-grid gap-3 col-4 mx-auto">
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                  <br>
+                </div>
+                
+                <div class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
+  
+                  <img src="../static/images/4.png" class="img-fluid" alt="Sample image">
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% endblock %}
