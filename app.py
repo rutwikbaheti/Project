@@ -8,6 +8,7 @@ from bson import ObjectId
 from datetime import datetime
 from flask_mail import Mail,Message
 from random import randint
+import re
 
 from requests import Session
 
@@ -81,13 +82,19 @@ def registration():
         
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
+        pattern = "^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$"
+        val_pass = re.findall(pattern, password1)
         
+            
         email_found = records.find_one({"email": email})
         if email_found:
-            message = "This email already exists in database"
+            message = "This email already exists"
             return redirect(url_for('registration', message=message))
         elif password1 != password2:
             message = "Passwords should be same"
+            return redirect(url_for('registration', message=message))
+        elif not val_pass:
+            message="Password must be at least 8 characters containing capital letters[A-Z], small letters[a-z], symbols[@#$%^&] and numbers[0-9]"
             return redirect(url_for('registration', message=message))
         else:
             hashed = bcrypt.hashpw(password2.encode('utf-8'), bcrypt.gensalt())
