@@ -43,7 +43,7 @@
               <div class="row">
                 <div class="input-field col s4 mb-4">
                   <label style="font-weight: bold;">Symptom-1 *</label><br>
-                  <select id="s1" name="Symptom1" required style="padding: 5px; font-size: 15px;">
+                  <select id="s1" name="Symptom1" onchange="updateSelect(this,'s2','s3','s4','s5');" required style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -170,7 +170,7 @@
                 <div class="input-field col s4 mb-4">
                   <label style="font-weight: bold;">Symptom-2 *</label><br>
 
-                  <select id="s2" name="Symptom2" required style="padding: 5px; font-size: 15px;"> 
+                  <select id="s2" name="Symptom2" required onchange="updateSelect(this,'s1','s3','s4','s5');"style="padding: 5px; font-size: 15px;"> 
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -297,7 +297,7 @@
                 <div class="input-field col s4 mb-4">
                   <label style="font-weight: bold;">Symptom-3 *</label><br>
 
-                  <select id="s3" name="Symptom3" required style="padding: 5px; font-size: 15px;">
+                  <select id="s3" name="Symptom3" required onchange="updateSelect(this,'s2','s1','s4','s5');"style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -426,7 +426,7 @@
                 <div class="input-field col s4 mb-4">
                   <label style="font-weight: bold;">Symptom-4 *</label><br>
 
-                  <select id="s4" name="Symptom4" required style="padding: 5px; font-size: 15px;">
+                  <select id="s4" name="Symptom4" required onchange="updateSelect(this,'s2','s3','s1','s5');"style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -554,7 +554,7 @@
                 <div class="input-field col s4 mb-4">
                   <label style="font-weight: bold;">Symptom-5 *</label><br>
 
-                  <select id="s5" name="Symptom5" required style="padding: 5px; font-size: 15px;">
+                  <select id="s5" name="Symptom5" required onchange="updateSelect(this,'s2','s3','s4','s1');"style="padding: 5px; font-size: 15px;">
                     <option value="" disabled selected>Choose your Symptom</option>
                     <option value="itching">itching</option>
                     <option value="skin_rash">skin_rash</option>
@@ -1188,4 +1188,44 @@
     </div>
 </div>
 </div>
+<script>
+  function updateSelect(changedSelect, selectId1,selectId2,selectId3,selectId4 ) {
+    //1
+    var otherSelect = document.getElementById(selectId1);
+    for (var i = 0; i < otherSelect.options.length; ++i) {
+        otherSelect.options[i].disabled = false;
+    }
+    if (changedSelect.selectedIndex == 0) {
+        return;
+    }
+    otherSelect.options[changedSelect.selectedIndex].disabled = true;
+    //2
+    var otherSelect = document.getElementById(selectId2);
+    for (var i = 0; i < otherSelect.options.length; ++i) {
+        otherSelect.options[i].disabled = false;
+    }
+    if (changedSelect.selectedIndex == 0) {
+        return;
+    }
+    otherSelect.options[changedSelect.selectedIndex].disabled = true;
+    //3
+    var otherSelect = document.getElementById(selectId3);
+    for (var i = 0; i < otherSelect.options.length; ++i) {
+        otherSelect.options[i].disabled = false;
+    }
+    if (changedSelect.selectedIndex == 0) {
+        return;
+    }
+    otherSelect.options[changedSelect.selectedIndex].disabled = true;
+    //4
+    var otherSelect = document.getElementById(selectId4);
+    for (var i = 0; i < otherSelect.options.length; ++i) {
+        otherSelect.options[i].disabled = false;
+    }
+    if (changedSelect.selectedIndex == 0) {
+        return;
+    }
+    otherSelect.options[changedSelect.selectedIndex].disabled = true;
+  }
+</script>
 {% endblock %}
