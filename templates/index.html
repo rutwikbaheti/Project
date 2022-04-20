@@ -4,154 +4,182 @@
 {% block body %}
 <style>
   /* For desktop: */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+  .col-1 {
+    width: 8.33%;
+  }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*="col-"] {
+  .col-2 {
+    width: 16.66%;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+    width: 33.33%;
+  }
+
+  .col-5 {
+    width: 41.66%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-7 {
+    width: 58.33%;
+  }
+
+  .col-8 {
+    width: 66.66%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
+
+  .col-10 {
+    width: 83.33%;
+  }
+
+  .col-11 {
+    width: 91.66%;
+  }
+
+  .col-12 {
     width: 100%;
   }
-  /* img{
+
+  @media only screen and (max-width: 768px) {
+
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+
+    /* img{
     width: 300px;
     height: 250px;
     margin: auto;    
     display: block;
   } */
-}
+  }
 </style>
 <section class="h-50">
-    <div class="container container-custome" style="border-radius: 20px; background-color: #1576d1;">
-      <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-md-6 row-data">
-          <h2 style="font-family: Merriweather serif;
+  <div class="container container-custome" style="border-radius: 20px; background-color: #1576d1;">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-6 row-data">
+        <h2 style="font-family: Merriweather serif;
           position: relative;
           color: white;">What concerns you about your health today?</h2>
-          <p style="position: relative;
+        <p style="position: relative;
           left: 30px;
           color: white;
           text-align: justify;">
-            Check your symptoms and find out what could be causing them. <br>It's fast, free and anonymous.
-          </p>
-          <button class="btn btn-success btn-custome" type="submit" onclick="location.href='login'">
-            Check Here
-          </button>
-        </div>
-        <div class="col-md-6 services-section">
-          <img class="img-fluid" src="../static/images/1.png" style="
-          
-          margin: auto;
-          display: block;
-      "/>
-        </div>
+          Check your symptoms and find out what could be causing them. <br>It's fast, free and anonymous.
+        </p>
+        <button class="btn btn-success btn-lg btn-custome" type="submit" onclick="location.href='login'">
+          Check Here
+        </button>
+      </div>
+      <div class="col-md-6 services-section">
+        <img class="img-fluid" src="../static/images/1.png"/>
       </div>
     </div>
+  </div>
 </section>
 
 <div class="container" style="margin-top: 40px;
 border-radius: 10px;">
 
-</div >
+</div>
 <div class="container" style="margin: auto auto;">
   <div class="card justify-content-md-center">
     <!-- <h5 class="card-header">Featured</h5> -->
-    <div class="row align-items-end" style="margin: 10px 10px;">
-        <div class="col-sm-6 services-section">
-            <img src="../static/images/2.png" class="img-fluid" alt="" width="800" height="600">
-        </div>
-        <div class="col-sm-6">  
-            <div class="card-body">
-              <br>
-                <h2 class="card-title">Our system provides you with a fast and accurate health assessment, </h2>
-                <br>
-                <h5>
-                  Steps to Follow :
-                </h5>
-                <div class="list-wrapper">
-                  <div class="red-line"></div>
-                  <div class="list-item-wrapper">
-                    <div class="list-bullet">1</div>
-                    <div class="list-item">
-                      <div class="list-title">Enter your symptoms</div>
-                    </div>
-                  </div>
-      
-                  <div class="list-item-wrapper">
-                    <div class="list-bullet">2</div>
-                    <div class="list-item">
-                      <div class="list-title">Answer some simple questions</div>
-                    </div>
-                  </div>
-      
-                  <div class="list-item-wrapper">
-                    <div class="list-bullet">3</div>
-                    <div class="list-item">
-                      <div class="list-title">Done! Your assessment will reveal:</div>
-                    </div>
-                    <ul class="check-symbols">
-                      <li><span>&#10003;</span>&emsp;Possible disease based on your symptoms</li>
-                      <li><span>&#10003;</span>&emsp;Information & causes of disease</li>
-                      <li><span>&#10003;</span>&emsp;List of doctors for consultation</li>
-                    </ul>
-                  </div>
-                </div>
+    <div class="row align-items-end">
+      <div class="col-sm-6">
+        <img src="../static/images/2.png" class="img-fluid" alt="">
+      </div>
+      <div class="col-sm-6">
+        <div class="card-body">
+          <h2 class="card-title">Our system provides you with a fast and accurate health assessment, </h2>
+          <h5>
+            Steps to Follow :
+          </h5>
+          <div class="list-wrapper">
+            <div class="red-line"></div>
+            <div class="list-item-wrapper">
+              <div class="list-bullet">1</div>
+              <div class="list-item">
+                <div class="list-title">Enter your symptoms</div>
+              </div>
             </div>
+
+            <div class="list-item-wrapper">
+              <div class="list-bullet">2</div>
+              <div class="list-item">
+                <div class="list-title">Answer some simple questions</div>
+              </div>
+            </div>
+
+            <div class="list-item-wrapper">
+              <div class="list-bullet">3</div>
+              <div class="list-item">
+                <div class="list-title">Done! Your assessment will reveal:</div>
+              </div>
+              <ul class="check-symbols">
+                <li><span>&#10003;</span>&emsp;Possible disease based on your symptoms</li>
+                <li><span>&#10003;</span>&emsp;Information & causes of disease</li>
+                <li><span>&#10003;</span>&emsp;List of doctors for consultation</li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
 <div class="container" style="margin-top: 40px;
 border-radius: 10px;">
 
-</div >
- 
-  <div class="container-custome">
-    <div class="container" 
-    style="margin-top: 40px;
+</div>
+
+<div class="container-custome">
+  <div class="container" style="margin-top: 40px;
   border-radius: 10px;
   background-color: #fff;">
-      <div class="row">
-        <div class="col-md-6 row-data-3">
-          <h2 style="font-family: Merriweather serif;
+    <div class="row">
+      <div class="col-md-6 row-data-3">
+        <h2 style="font-family: Merriweather serif;
           position: relative;
           padding-top: 80px;
           padding-left: 30px;
           color: black;">Technology We Use </h2>
-          <p style="position: relative;
+        <p style="position: relative;
           left: 30px;
           color: black;
           text-align: justify;">
-           We use a Voting Classifier which is a machine learning model that trains on an ensemble of numerous models and predicts an output (class) based on their highest probability of chosen class as the output.
-           It simply aggregates the findings of each classifier passed into Voting Classifier and predicts the output class based on the highest majority of voting. The idea is instead of creating separate dedicated models and finding the accuracy for each them, we create a single model which trains by these models and predicts output based on their combined majority of voting for each output class.
-          </p>
-        </div>
-        <div class="col-md-6 services-section">
-          <img src="../static/images/3.png" class="img-fluid"/>
-        </div>
+          We use a Voting Classifier which is a machine learning model that trains on an ensemble of numerous models and
+          predicts an output (class) based on their highest probability of chosen class as the output.
+          It simply aggregates the findings of each classifier passed into Voting Classifier and predicts the output
+          class based on the highest majority of voting. The idea is instead of creating separate dedicated models and
+          finding the accuracy for each them, we create a single model which trains by these models and predicts output
+          based on their combined majority of voting for each output class.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img src="../static/images/3.png" class="img-fluid" />
       </div>
     </div>
   </div>
-  <div class="container my-5">
-    <!-- Footer -->
-    <footer
-    class="text-center text-lg-start text-dark"
-    style="background-color: #eceff1"
-    >
+</div>
+<div class="container my-5">
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-dark" style="background-color: #eceff1">
     <!-- Section: Social media -->
-    <section
-      class="d-flex justify-content-between p-4 text-white"
-      style="background-color: #1576d1"
-    >
+    <section class="d-flex justify-content-between p-4 text-white" style="background-color: #1576d1">
       <!-- Left -->
       <div class="me-5">
         <span>Annasaheb Dange College of Engineering And Technology, Ashta.</span>
@@ -160,15 +188,16 @@ border-radius: 10px;">
 
       <!-- Right -->
       <div>
-        
+
         <a href="https://adcet.ac.in/ADCET/" class="text-white me-4 text-link">
           <i class="fa fa-google" aria-hidden="true"></i>
         </a>
-      
-        <a href="https://www.linkedin.com/school/annasaheb-dange-college-of-engineering-and-technology-ashta/" class="text-white me-4 text-link">
+
+        <a href="https://www.linkedin.com/school/annasaheb-dange-college-of-engineering-and-technology-ashta/"
+          class="text-white me-4 text-link">
           <i class="fa fa-linkedin" aria-hidden="true"></i>
         </a>
-        
+
       </div>
       <!-- Right -->
     </section>
@@ -183,10 +212,7 @@ border-radius: 10px;">
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold">Developed By</h6>
-            <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-            />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
               18131006&emsp;Sagar D. Shirure
             </p>
@@ -242,7 +268,7 @@ border-radius: 10px;">
                 <i class="fa fa-github" aria-hidden="true" style="color: black;"></i>
               </a>
             </p>
-            
+
           </div>
           <!-- Grid column -->
 
@@ -250,10 +276,7 @@ border-radius: 10px;">
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold">Under Guidance of</h6>
-            <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-            />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
               Dr. Smriti H. Bhandari
             </p>
@@ -263,7 +286,7 @@ border-radius: 10px;">
             <p>
               Mr. Shrihari Khatawkar
             </p>
-          
+
           </div>
           <!-- Grid column -->
 
@@ -308,18 +331,13 @@ border-radius: 10px;">
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div
-      class="text-center p-3"
-      style="background-color: rgba(0, 0, 0, 0.2)"
-    >
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2022 Copyright:
-      <a class="text-dark" href="#"
-        >DiagnoSoft</a
-      >
+      <a class="text-dark" href="#">DiagnoSoft</a>
     </div>
     <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
-  </div>
-  <!-- End of .container -->
+  </footer>
+  <!-- Footer -->
+</div>
+<!-- End of .container -->
 {% endblock %}

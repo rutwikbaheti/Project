@@ -296,4 +296,4 @@ def result():
     return render_template("result.html",pred="{}".format(data['prediction']), info = info, cause = cause, data = data, doc=doc) 
 
 if __name__ == "__main__":
-  app.run()
+  app.run(debug=True)
