@@ -294,6 +294,19 @@ def result():
         info = dis['information']
         cause = dis['causes']
         doc = db.Doctor_Info.find_one({"disease name" : data['prediction']})
+        if request.method == 'POST':
+            print("inn")
+            userEmail = session["email"]
+            user = db.User_Info.find_one({"email" : session["email"]})
+            name = user["name"]
+            stars = request.form.get("rating")
+            feedback = request.form.get("feedback")
+            db.Feedback.insert_one({
+                'userEmail' : userEmail,
+                'userName' : name,
+                'Stars' : stars,
+                'Feedback' : feedback
+            })
     return render_template("result.html",pred="{}".format(data['prediction']), info = info, cause = cause, data = data, doc=doc) 
 
 if __name__ == "__main__":

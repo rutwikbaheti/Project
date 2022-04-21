@@ -1,6 +1,51 @@
 {% extends "base.html" %}
 {% block title %}History{% endblock %}
 {% block content %}
+<nav class="navbar navbar-custom navbar-expand-lg navbar-fixed-top navbar-inverse navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/home" style="font-family: Serif; color: #1576d1;"><img style="height: 40px;padding: 0px 5px;"src="../static/images/logo.png" alt="logo">DiagnoSoft</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home"><span class="sr-only">(current)</span></a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Steps</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Information</a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-bars" aria-hidden="true"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><h5 class="dropdown-header">Profile</h5></li>
+            <li><a class="dropdown-item" href="/profile">User Profile</a></li>
+            <li><a class="dropdown-item" href="/history">User History</a></li>
+            <div class="dropdown-divider"></div>
+            <li><h5 class="dropdown-header">Settings</h5></li>
+            <li><a class="dropdown-item" href="update">Edit Profile</a></li>
+            <li><a class="dropdown-item" href="change_password">Change Password</a></li>
+            <li><a class="dropdown-item" href="delete_account" onclick="return confirm('Are you sure you want delete this account ? ')">Delete Account</a></li>
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <br>
 <div class="container" style="margin: auto auto;">
     <div class="card justify-content-md-center">
