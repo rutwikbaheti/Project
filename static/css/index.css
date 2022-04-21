@@ -27,7 +27,8 @@ body {
 }
 .services-section img {
 
-  height: 500px;
+  height: 450px;
+  width: auto;
   margin: auto;
   display: block;
 }

@@ -1,7 +1,7 @@
 {% extends "navebar_out.html" %}
 {% block title %}Diagnosis{% endblock %}
 {% block content %}
-<br><br><br>
+
 <style>
   /* For desktop: */
 .col-1 {width: 8.33%;}
@@ -25,6 +25,32 @@
   
 }
 </style>
+<nav class="navbar navbar-custom navbar-expand-lg navbar-fixed-top navbar-inverse navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/home" style="font-family: Serif; color: #1576d1;"><img style="height: 40px;padding: 0px 5px;"src="../static/images/logo.png" alt="logo">DiagnoSoft</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home"><span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <!-- <a class="btn btn-outline-success navbar-btn" href="/logout">LogOut</a> -->
+      <!-- <button class="btn btn-outline-success navbar-btn" type="submit">Login</button> -->
+    </div>
+  </div>
+</nav>
+<br><br>
 <div class="container" style="margin: auto auto;">
     <div class="card justify-content-md-center">
       <!-- <h5 class="card-header">Featured</h5> -->
