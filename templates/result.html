@@ -1,6 +1,10 @@
 {% extends "navebar_out.html" %}
 {% block title %}Diagnosis{% endblock %}
 {% block content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="../static/js/jquery.star-rating-svg.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/css/star-rating-svg.css">
+
 <nav class="navbar navbar-custom navbar-expand-lg navbar-fixed-top navbar-inverse navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="/home" style="font-family: Serif; color: #1576d1;"><img style="height: 40px;padding: 0px 5px;"src="../static/images/logo.png" alt="logo">DiagnoSoft</a>
@@ -166,8 +170,16 @@
                             <h6>Is the information on this site helpful?</h6>
                             <form>
                               <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Feedback"></textarea>
+                                <label for=""></label>
+                                <div class="my-rating-6"></div>
+                                <input type="text" value="" name="rating" id="rating" hidden>
+
+                              </div>
+                              <br>
+                              <div class="form-group">
+                                <textarea class="form-control" id="feedbackform" name="feedbackform"  rows="3" placeholder="Feedback"></textarea>
                               </div><br><br>
+                              
                               <button type="submit" class="btn btn-success d-grid gap-3 col-4 mx-auto" style="width:18%">Submit</button>
                             </form>
                           </div>
@@ -189,5 +201,23 @@
         </div>  
     </div>
 </div>
+<script>
+$(".my-rating-6").starRating({
+  totalStars: 5,
+  emptyColor: 'lightgray',
+  hoverColor: 'salmon',
+  activeColor: 'cornflowerblue',
+  initialRating: 4,
+  strokeWidth: 0,
+  useGradient: false,
+  minRating: 1,
+  callback: function(currentRating, $el){
+      var s = document.getElementById("rating");
+      s.value = currentRating;
+      // console.log('currentRating ', currentRating);
+      // console.log('s ',s.value);
+  }
+});
+</script>
 
 {% endblock %}
