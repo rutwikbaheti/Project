@@ -250,11 +250,12 @@ block content %}
       var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
       var name = document.getElementById('inputFullName').value;
       if(!regName.test(name)){
-          alert('Please enter your full name (first & last name).');
+          //alert('Please enter your full name (first & last name).');
           document.getElementById('inputFullName').focus();
           return false;
       }else{
-          alert('Valid name given.');
+          
+        //alert('Valid name given.');
           return true;
       }
   }
